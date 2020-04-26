@@ -10,7 +10,7 @@
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
     "simple-react-lightbox": "^2.7.3-2",
-    "homepage":"https://jianghuawang.github.io/react-portfolio/"
+    "homepage":"http://jianghuawang.github.io/react-portfolio/"
   },
   "scripts": {
     "start": "react-scripts start",
