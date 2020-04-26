@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/static/css/main.61e53124.chunk.css",
+    "main.js": "/static/js/main.09b5f5ee.chunk.js",
+    "main.js.map": "/static/js/main.09b5f5ee.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.d74678c6.js",
+    "runtime-main.js.map": "/static/js/runtime-main.d74678c6.js.map",
+    "static/js/2.17620c30.chunk.js": "/static/js/2.17620c30.chunk.js",
+    "static/js/2.17620c30.chunk.js.map": "/static/js/2.17620c30.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.fae42dcf81ea8ef061f0c1ac3ddd5f93.js": "/precache-manifest.fae42dcf81ea8ef061f0c1ac3ddd5f93.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.61e53124.chunk.css.map": "/static/css/main.61e53124.chunk.css.map",
+    "static/js/2.17620c30.chunk.js.LICENSE.txt": "/static/js/2.17620c30.chunk.js.LICENSE.txt",
+    "static/media/antvsbee-mainpage.png": "/static/media/antvsbee-mainpage.b8913c0b.png",
+    "static/media/map.png": "/static/media/map.19607075.png",
+    "static/media/sample.png": "/static/media/sample.08ea67dd.png",
+    "static/media/selftake1.jpeg": "/static/media/selftake1.488270c5.jpeg",
+    "static/media/selftake10.jpeg": "/static/media/selftake10.948e9c71.jpeg",
+    "static/media/selftake2.jpeg": "/static/media/selftake2.6f314909.jpeg",
+    "static/media/selftake3.jpeg": "/static/media/selftake3.65fb3d9e.jpeg",
+    "static/media/selftake4.jpeg": "/static/media/selftake4.1488e23a.jpeg",
+    "static/media/selftake5.jpeg": "/static/media/selftake5.4a93dc26.jpeg",
+    "static/media/selftake6.jpeg": "/static/media/selftake6.35fd6353.jpeg",
+    "static/media/selftake7.jpeg": "/static/media/selftake7.b60d9884.jpeg",
+    "static/media/selftake8.jpeg": "/static/media/selftake8.3c4f1f75.jpeg",
+    "static/media/selftake9.jpeg": "/static/media/selftake9.151c2083.jpeg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d74678c6.js",
+    "static/js/2.17620c30.chunk.js",
+    "static/css/main.61e53124.chunk.css",
+    "static/js/main.09b5f5ee.chunk.js"
+  ]
+}
