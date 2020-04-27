@@ -120,18 +120,18 @@
 }
 
 .back{
-	background-color:#212121;;
-	border-radius:28px;
+	background-color:#FFFFFF;
+	border-radius:30px;
 	border:1px solid #212121;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
 	font-family:Arial;
 	font-size:17px;
-	padding:16px 31px;
+	padding:16px 20px;
 	text-decoration:none;
   position: fixed;
   visibility: hidden;
-  right: 20px;
+  right: 30px;
   bottom: 40px;
 }

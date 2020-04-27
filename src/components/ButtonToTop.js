@@ -1,14 +1,17 @@
-import React, { Component } from 'react'
-import icon from '../images/backtotop.png'
+import React, { Component } from 'react';
+import icon from '../images/backtotop.png';
+
 export default class ButtonToTop extends Component {
-    backtoTop=()=>{
+    backtoTop(){
         document.body.scrollTop=0;
         document.documentElement.scrollTop=0;
     }
     render() {
         return (
             <div>
-                <button className="back" onclick={this.backtoTop}><img src={icon} alt=""/></button>
+                <button className="back" onClick={this.backtoTop}>
+                    <img src={icon} alt=""/>
+                </button>
             </div>
         )
     }

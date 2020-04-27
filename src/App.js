@@ -17,6 +17,18 @@ export default class App extends Component {
       )
     }
   }
+  handleOverScroll(){
+    var bttn=document.querySelector(".back");
+    if(document.body.scrollTop>20|| document.documentElement.scrollTop>20){
+        bttn.style.visibility="visible";
+    }
+    else{
+        bttn.style.visibility="hidden";
+    }
+  }
+  componentDidMount(){
+    window.addEventListener('scroll',this.handleOverScroll)
+  }
   render() {
     const tabs = [
       {
