@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.61e53124.chunk.css",
-    "main.js": "/static/js/main.09b5f5ee.chunk.js",
-    "main.js.map": "/static/js/main.09b5f5ee.chunk.js.map",
+    "main.css": "/static/css/main.04ef4a04.chunk.css",
+    "main.js": "/static/js/main.12a91483.chunk.js",
+    "main.js.map": "/static/js/main.12a91483.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.d74678c6.js",
     "runtime-main.js.map": "/static/js/runtime-main.d74678c6.js.map",
     "static/js/2.17620c30.chunk.js": "/static/js/2.17620c30.chunk.js",
     "static/js/2.17620c30.chunk.js.map": "/static/js/2.17620c30.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.fae42dcf81ea8ef061f0c1ac3ddd5f93.js": "/precache-manifest.fae42dcf81ea8ef061f0c1ac3ddd5f93.js",
+    "precache-manifest.f77a76d00ece7355de2c51d7dac4487e.js": "/precache-manifest.f77a76d00ece7355de2c51d7dac4487e.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.61e53124.chunk.css.map": "/static/css/main.61e53124.chunk.css.map",
+    "static/css/main.04ef4a04.chunk.css.map": "/static/css/main.04ef4a04.chunk.css.map",
     "static/js/2.17620c30.chunk.js.LICENSE.txt": "/static/js/2.17620c30.chunk.js.LICENSE.txt",
     "static/media/antvsbee-mainpage.png": "/static/media/antvsbee-mainpage.b8913c0b.png",
     "static/media/map.png": "/static/media/map.19607075.png",
@@ -29,7 +29,7 @@
   "entrypoints": [
     "static/js/runtime-main.d74678c6.js",
     "static/js/2.17620c30.chunk.js",
-    "static/css/main.61e53124.chunk.css",
-    "static/js/main.09b5f5ee.chunk.js"
+    "static/css/main.04ef4a04.chunk.css",
+    "static/js/main.12a91483.chunk.js"
   ]
 }
