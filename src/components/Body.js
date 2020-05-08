@@ -3,6 +3,7 @@ import Home from './Home.js'
 import Images from './Images.js'
 import Videos from './Videos.js'
 import Projects from './Projects.js'
+import GuestBook from './GuestBook.js'
 export default class Body extends Component {
     displayContent=()=>{
         var activeTab=this.props.activeTab
@@ -12,8 +13,10 @@ export default class Body extends Component {
             return <Images/>
         else if(activeTab === 3)
             return <Videos/>
-        else
+        else if(activeTab ===4)
             return <Projects/>
+        else
+            return <GuestBook/>
     }
     render() {
         return (

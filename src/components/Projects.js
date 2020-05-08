@@ -7,18 +7,18 @@ export default class Projects extends Component {
             <div className="projects">
                 <div className="project">
                     <div className="project-img" >
-                        <a href="https://github.com/jianghuawang/AntVS.Bees"><img src={ant} alt=""/></a>
+                        <a href="https://github.com/jianghuawang/AntVS.Bees"><img className="modal-custom" src={ant} alt=""/></a>
                     </div>
                     <div className="project-description">
-                        <h2>Ants VS. Bees</h2>
+                        <h4>Ants VS. Bees</h4>
                     </div>
                 </div>
                 <div className="project">
                     <div className="project-img" >
-                        <a href="https://github.com/jianghuawang/Yelpmap"><img src={Berkeleymap} alt=""/></a>
+                        <a href="https://github.com/jianghuawang/Yelpmap"><img className="modal-custom" src={Berkeleymap} alt=""/></a>
                     </div>
                     <div className="project-description">
-                        <h2>Yelp Map</h2>
+                        <h4>Yelp Map</h4>
                     </div>
                 </div>                
             </div>

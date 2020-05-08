@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import TabList from './components/TabList.js';
 import Body from './components/Body.js';
-import ButtonToTop from './components/ButtonToTop.js'
-import './App.css'
+import ButtonToTop from './components/ButtonToTop.js';
+import './App.css';
+import config from './config.js';
 
+const firebase=require('firebase')
 export default class App extends Component {
   constructor(){
     super();
@@ -27,6 +29,9 @@ export default class App extends Component {
     }
   }
   componentDidMount(){
+    if(!firebase.apps.length) {
+      firebase.initializeApp(config)
+    } 
     window.addEventListener('scroll',this.handleOverScroll)
   }
   render() {
@@ -46,12 +51,16 @@ export default class App extends Component {
       {
         id:4,
         title:'Projects'
-      }    
+      },
+      {
+        id:5,
+        title:'Guest Book'
+      }
   ]
     return (
       <div className='body'>
           <div className="container">
-            <div className='nav-bar'>
+            <div className='navbar'>
               <TabList tabs={tabs}
               changeTab={this.changeTab}
               activeTab={this.state.activeTab}/>
