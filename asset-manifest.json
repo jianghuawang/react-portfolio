@@ -1,20 +1,22 @@
 {
   "files": {
-    "main.css": "/react-portfolio/static/css/main.04ef4a04.chunk.css",
-    "main.js": "/react-portfolio/static/js/main.00db73a1.chunk.js",
-    "main.js.map": "/react-portfolio/static/js/main.00db73a1.chunk.js.map",
+    "main.css": "/react-portfolio/static/css/main.51a7b780.chunk.css",
+    "main.js": "/react-portfolio/static/js/main.e081a628.chunk.js",
+    "main.js.map": "/react-portfolio/static/js/main.e081a628.chunk.js.map",
     "runtime-main.js": "/react-portfolio/static/js/runtime-main.359d512e.js",
     "runtime-main.js.map": "/react-portfolio/static/js/runtime-main.359d512e.js.map",
-    "static/js/2.17620c30.chunk.js": "/react-portfolio/static/js/2.17620c30.chunk.js",
-    "static/js/2.17620c30.chunk.js.map": "/react-portfolio/static/js/2.17620c30.chunk.js.map",
+    "static/css/2.0868d1ab.chunk.css": "/react-portfolio/static/css/2.0868d1ab.chunk.css",
+    "static/js/2.ae9b038f.chunk.js": "/react-portfolio/static/js/2.ae9b038f.chunk.js",
+    "static/js/2.ae9b038f.chunk.js.map": "/react-portfolio/static/js/2.ae9b038f.chunk.js.map",
     "index.html": "/react-portfolio/index.html",
-    "precache-manifest.4d20d6d97856eec8780d8ebebcc0ee88.js": "/react-portfolio/precache-manifest.4d20d6d97856eec8780d8ebebcc0ee88.js",
+    "precache-manifest.b52c0bd0c982bb94ad9b70bf13d576e9.js": "/react-portfolio/precache-manifest.b52c0bd0c982bb94ad9b70bf13d576e9.js",
     "service-worker.js": "/react-portfolio/service-worker.js",
-    "static/css/main.04ef4a04.chunk.css.map": "/react-portfolio/static/css/main.04ef4a04.chunk.css.map",
-    "static/js/2.17620c30.chunk.js.LICENSE.txt": "/react-portfolio/static/js/2.17620c30.chunk.js.LICENSE.txt",
+    "static/css/2.0868d1ab.chunk.css.map": "/react-portfolio/static/css/2.0868d1ab.chunk.css.map",
+    "static/css/main.51a7b780.chunk.css.map": "/react-portfolio/static/css/main.51a7b780.chunk.css.map",
+    "static/js/2.ae9b038f.chunk.js.LICENSE.txt": "/react-portfolio/static/js/2.ae9b038f.chunk.js.LICENSE.txt",
     "static/media/antvsbee-mainpage.png": "/react-portfolio/static/media/antvsbee-mainpage.b8913c0b.png",
     "static/media/map.png": "/react-portfolio/static/media/map.19607075.png",
-    "static/media/sample.png": "/react-portfolio/static/media/sample.08ea67dd.png",
+    "static/media/selfie.jpg": "/react-portfolio/static/media/selfie.bfcf3280.jpg",
     "static/media/selftake1.jpeg": "/react-portfolio/static/media/selftake1.488270c5.jpeg",
     "static/media/selftake10.jpeg": "/react-portfolio/static/media/selftake10.948e9c71.jpeg",
     "static/media/selftake2.jpeg": "/react-portfolio/static/media/selftake2.6f314909.jpeg",
@@ -28,8 +30,9 @@
   },
   "entrypoints": [
     "static/js/runtime-main.359d512e.js",
-    "static/js/2.17620c30.chunk.js",
-    "static/css/main.04ef4a04.chunk.css",
-    "static/js/main.00db73a1.chunk.js"
+    "static/css/2.0868d1ab.chunk.css",
+    "static/js/2.ae9b038f.chunk.js",
+    "static/css/main.51a7b780.chunk.css",
+    "static/js/main.e081a628.chunk.js"
   ]
 }
