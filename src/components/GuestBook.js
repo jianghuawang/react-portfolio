@@ -89,7 +89,7 @@ export default class GuestBook extends Component {
         return (
             <div className="guestbookContainer">
                 <div className='formgrid'>
-                    <form autoComplete="off" className="form fromForGust" onSubmit={this.firebasePush}>
+                    <form autoComplete="off" className="form formForGuest" onSubmit={this.firebasePush}>
                             <div className="field">
                                 <label htmlFor="name" className="field-label">Name:</label>
                                 <input id="name" type="text" className="input" name='name' placeholder="Enter your name" pattern=".{5,19}" title="larger than 5 and less than 20 characters" value={this.state.name} onChange={this.onChange} required></input>
@@ -100,7 +100,7 @@ export default class GuestBook extends Component {
                             </div>
                             <div className="field">
                                 <label htmlFor="comment" className="field-label">Comment:</label>
-                                <textarea name="comment" id="comment" rows="5" className="textarea" placeholder="Leave your comment" pattern=".{15,499}" title="larger than 15 and less than 500 characters" value={this.state.comment} onChange={this.onChange} required></textarea>
+                                <textarea name="comment" id="comment" rows="5" className="textarea" placeholder="Leave your comment" minLength='15' maxLength="499" title="larger than 15 and less than 500 characters" value={this.state.comment} onChange={this.onChange} required></textarea>
                             </div>
                             <div className="field select-custom">
                                 <label className='field-label' htmlFor="visibility">Visibility to others:</label>
@@ -119,9 +119,11 @@ export default class GuestBook extends Component {
                         </form>
                     </div>
                 <div className="commentHistory">
-                    <div className="label allComments ">
+                    <div className="label allComments">
                         <h3>Comment History</h3>
-                        {item}
+                        <div className="comment-content">
+                            {item}
+                        </div>
                     </div>
                 </div>
             </div>
