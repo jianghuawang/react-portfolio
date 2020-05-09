@@ -19,12 +19,29 @@ export default class GuestBook extends Component {
         this.onChange =(e)=>{
             this.setState({[e.target.name]:e.target.value})
         }
+        this.handleValidation=()=>{
+            if(this.state.description.length>100){
+                alert("description must be less than 100 characters");
+                return false;
+            }
+            else if((this.state.comment.length<15)|(this.state.comment.length>500)){
+                alert("comment must be larger than 15 but less than 500 characters");
+                return false;
+            }
+            else{
+                return true;
+            }
+            
+        }
         this.firebasePush=(e)=>{
             e.preventDefault();
             if(!firebase.app.length){
                 firebase.initializeApp(config)
             }
             let time=Date().toString()
+            if(this.handleValidation()===false){
+                return;
+            }
             firebase.database().ref("messages").push(
                 {
                     name: this.state.name,
@@ -96,11 +113,11 @@ export default class GuestBook extends Component {
                             </div>
                             <div className="field">
                                 <label htmlFor="description" className="field-label">Description of Yourself:</label>
-                                <textarea name="description" id="description" rows="3" className="textarea" placeholder="optional" pattern=".{,99}" title="less than 100 characters" value={this.state.description} onChange={this.onChange}></textarea>
+                                <textarea name="description" id="description" rows="3" className="textarea" placeholder="optional" value={this.state.description} onChange={this.onChange}></textarea>
                             </div>
                             <div className="field">
                                 <label htmlFor="comment" className="field-label">Comment:</label>
-                                <textarea name="comment" id="comment" rows="5" className="textarea" placeholder="Leave your comment" minLength='15' maxLength="499" title="larger than 15 and less than 500 characters" value={this.state.comment} onChange={this.onChange} required></textarea>
+                                <textarea name="comment" id="comment" rows="5" className="textarea" placeholder="Leave your comment" value={this.state.comment} onChange={this.onChange} required></textarea>
                             </div>
                             <div className="field select-custom">
                                 <label className='field-label' htmlFor="visibility">Visibility to others:</label>
