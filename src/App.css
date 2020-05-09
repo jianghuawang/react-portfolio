@@ -5,6 +5,7 @@ html{
 }
 .body{
   font-family:"Open Sans", sans-serif;
+  height: 100%;
 }
 .navbar{
   width: 100%;
@@ -185,17 +186,19 @@ h2{
   margin: 0 auto;
 }
 .allComments{
-  margin: 0 auto;
   widows: 100%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;  
+  justify-content: flex-start;
   box-shadow:  5px 5px 11px #babdc3, 
              -5px -5px 11px #ffffff;
   height:100%;
 }
 .comment-content{
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;  
   overflow: scroll;
 }
 .container{
