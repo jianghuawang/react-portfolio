@@ -55,6 +55,10 @@ export default class App extends Component {
       {
         id:5,
         title:'Guest Book'
+      },
+      {
+        id:6,
+        title:'Movies'
       }
   ]
     return (
