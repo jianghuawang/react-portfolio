@@ -5,15 +5,20 @@ html{
 }
 .body{
   font-family:"Open Sans", sans-serif;
+  height: 100%;
 }
 .navbar{
+  width: 100%;
   background-color: #F1F5FD;
   box-shadow: 4px 4px 8px rgba(56,53,85,0.3), -4px -4px 8px rgba(255,255,255,0.6), inset 1px 1px 1px rgba(224,234,249,0.6);
+  white-space: normal;
+}
+.navbar-item{
+  white-space: normal;
 }
 .modal{
   background-color: #F1F5FD;
 }
-
 h2{
   margin: 10px auto;
   padding: 5px;
@@ -33,6 +38,7 @@ h2{
 }
 .selfie{
   padding-top: 16px;
+  width: 40%;
   max-width:400px;
   padding: 2em;
   border-radius: 16px;
@@ -161,28 +167,39 @@ h2{
 .guestbookContainer{
   width: 90%;
   max-width: 2000px;
+  max-height: calc(100vh - 126px);
   display: flex;
   margin: 0 auto;
   justify-content: space-between;
 }
 .formgrid{
   margin-top: 50px;
-  width: 45%;
+  width:45%;
 }
-
+.formForGuest{
+  overflow: scroll;
+  height: 100%;
+}
 .commentHistory{
   width: 45%;
   padding-top: 50px;
   margin: 0 auto;
 }
 .allComments{
-  margin: 0 auto;
   widows: 100%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;  
+  justify-content: flex-start;
   box-shadow:  5px 5px 11px #babdc3, 
              -5px -5px 11px #ffffff;
+  height:100%;
+}
+.comment-content{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;  
+  overflow: scroll;
 }
 .container{
   padding-left: 0;
