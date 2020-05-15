@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
-
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
 html{
   background-color: #F1F5FD;
 }
@@ -101,7 +100,6 @@ h2{
   max-width: 100%;
   padding: 2em;
   border-radius: 16px;
-  margin-bottom: 2em;
   font-size: 1rem;
   box-shadow: 6px 6px 12px rgba(56,53,85,0.3), -6px -6px 12px rgba(255,255,255,0.5), inset 1px 1px 1px rgba(224,234,249,0.5);
   background-color: #F1F5FD;
@@ -246,3 +244,77 @@ select{
 .button{
   background-color: #F1F5FD;
 }
+.movie-container{
+  width: 90%;
+  max-width: 2000px;
+  margin: 32px auto;
+}
+.movie-grid{
+  width: 100%;
+  display: grid;
+  margin:0 auto;
+  grid-template-columns: repeat(auto-fit,minmax(300px,auto));
+  grid-gap: 1rem;
+  align-items: flex-start;
+}
+.movie-image img{
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+  cursor: pointer;
+}
+.lightbox-movie-container{
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.6);
+  flex-direction: column;
+  justify-content: center;
+}
+.lightbox-movie{
+  padding: 2em;
+  border-radius: 16px;
+  font-size: 1rem;
+  box-shadow: 6px 6px 12px rgba(56,53,85,0.5), -6px -6px 12px rgba(255,255,255,0.5), inset 1px 1px 1px rgba(224,234,249,0.5);
+  background-color: #F1F5FD;
+  color: #383555;
+  max-width: 50%;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+.movie-intro{
+  padding-left: 20px;
+}
+.movie-award{
+  color: gray;
+}
+.movie-time{
+  font-weight: 600;
+}
+.movie-rating{
+  justify-content: space-evenly;
+  margin-bottom: 30px;
+}
+.movie-imdb{
+  background: #f5c518;
+  border-radius: 16px;
+  padding: 10px;
+  padding-right: 20px;
+}
+.movie-meta{
+  background: #57a7fd;
+  border-radius: 16px;
+  padding: 10px;
+  color: white;
+}
+.disable-scrolling { 
+  height: 100%; 
+  overflow: hidden; 
+} 
