@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import selfie from '../images/selfie.jpg'
+import selfie from '../images/IMG_0094.jpeg'
 export default class home extends Component {
     render() {
         return (
