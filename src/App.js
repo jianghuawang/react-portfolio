@@ -19,7 +19,7 @@ export default class App extends Component {
     };
   }
   handleOverScroll = () => {
-    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 200) {
+    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 100) {
       this.setState({ showBtn: true });
     } else {
       this.setState({ showBtn: false });
