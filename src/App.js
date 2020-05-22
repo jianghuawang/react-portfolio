@@ -10,6 +10,7 @@ export default class App extends Component {
     super();
     this.state = {
       activeTab: 1,
+      showBtn: false,
     };
     this.changeTab = (id) => {
       this.setState({
@@ -17,17 +18,13 @@ export default class App extends Component {
       });
     };
   }
-  handleOverScroll() {
-    var bttn = document.querySelector(".back");
-    if (
-      document.body.scrollTop > 20 ||
-      document.documentElement.scrollTop > 20
-    ) {
-      bttn.style.visibility = "visible";
+  handleOverScroll = () => {
+    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 200) {
+      this.setState({ showBtn: true });
     } else {
-      bttn.style.visibility = "hidden";
+      this.setState({ showBtn: false });
     }
-  }
+  };
   componentDidMount() {
     if (!firebase.apps.length) {
       firebase.initializeApp(config);
@@ -65,15 +62,11 @@ export default class App extends Component {
       <div className="body">
         <div className="container">
           <div className="navbar">
-            <TabList
-              tabs={tabs}
-              changeTab={this.changeTab}
-              activeTab={this.state.activeTab}
-            />
+            <TabList tabs={tabs} changeTab={this.changeTab} activeTab={this.state.activeTab} />
           </div>
           <div className="main-body">
             <Body activeTab={this.state.activeTab} />
-            <ButtonToTop />
+            <ButtonToTop showBtn={this.state.showBtn} />
           </div>
         </div>
       </div>

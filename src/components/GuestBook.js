@@ -22,10 +22,7 @@ export default class GuestBook extends Component {
       if (this.state.description.length > 100) {
         alert("description must be less than 100 characters");
         return false;
-      } else if (
-        (this.state.comment.length < 15) |
-        (this.state.comment.length > 500)
-      ) {
+      } else if ((this.state.comment.length < 15) | (this.state.comment.length > 500)) {
         alert("comment must be larger than 15 but less than 500 characters");
         return false;
       } else {
@@ -106,6 +103,7 @@ export default class GuestBook extends Component {
       });
     }
   }
+  componentWillUnmount() {}
   render() {
     const item = this.state.messages.map((message) => (
       <Message key={message.id} message={message} />
@@ -113,11 +111,7 @@ export default class GuestBook extends Component {
     return (
       <div className="guestbookContainer">
         <div className="formgrid">
-          <form
-            autoComplete="off"
-            className="form formForGuest"
-            onSubmit={this.firebasePush}
-          >
+          <form autoComplete="off" className="form formForGuest" onSubmit={this.firebasePush}>
             <div className="field">
               <label htmlFor="name" className="field-label">
                 Name:
@@ -168,12 +162,7 @@ export default class GuestBook extends Component {
               <label className="field-label" htmlFor="visibility">
                 Visibility to others:
               </label>
-              <select
-                className="label"
-                name="visibility"
-                id="visibility"
-                onChange={this.onChange}
-              >
+              <select className="label" name="visibility" id="visibility" onChange={this.onChange}>
                 <option value="true">Yes</option>
                 <option value="false">No</option>
               </select>

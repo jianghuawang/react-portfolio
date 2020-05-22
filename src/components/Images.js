@@ -97,16 +97,8 @@ export default class Images extends Component {
     return (
       <div className="images-content">
         {items}
-        <div
-          className="image-enlargeView"
-          style={this.addStyling()}
-          onClick={this.handleReturn}
-        >
-          <img
-            className="image-enlargeContent"
-            src={this.state.activeImg.src}
-            alt=""
-          />
+        <div className="image-enlargeView" style={this.addStyling()} onClick={this.handleReturn}>
+          <img className="image-enlargeContent" src={this.state.activeImg.src} alt="" />
         </div>
       </div>
     );

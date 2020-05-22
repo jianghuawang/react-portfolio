@@ -6,10 +6,17 @@ export default class ButtonToTop extends Component {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
   }
+  addstyling() {
+    if (this.props.showBtn == true) {
+      return { visibility: "visible" };
+    } else {
+      return { visibility: "hidden" };
+    }
+  }
   render() {
     return (
       <div>
-        <figure className="avatar back" onClick={this.backtoTop}>
+        <figure className="avatar back" style={this.addstyling()} onClick={this.backtoTop}>
           <img src={icon} alt="" />
         </figure>
       </div>

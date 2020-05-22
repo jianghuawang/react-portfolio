@@ -71,23 +71,21 @@ export default class Movies extends Component {
             />
             <div className="movie-intro">
               <h2 className="movie-name">{this.state.activeMovie.Title}</h2>
-              <p className="movie-rating">
-                <span className=" movie-imdb">
-                  Imdb Score:{" "}
-                  {this.state.activeMovie.Poster !== "" &&
-                    this.state.activeMovie.Ratings[0].Value}
-                </span>
-                <span className="movie-meta">
-                  Meta Score:{" "}
-                  {this.state.activeMovie.Poster !== "" &&
-                    this.state.activeMovie.Ratings[2].Value}
-                </span>
+              <p className=" movie-imdb">
+                Imdb Score:{" "}
+                {this.state.activeMovie.Poster !== "" &&
+                  this.state.activeMovie.Ratings[0].Value}
+              </p>
+              <p className="movie-meta">
+                Meta Score:{" "}
+                {this.state.activeMovie.Poster !== "" &&
+                  this.state.activeMovie.Ratings[2].Value}
               </p>
               <p className="movie-description">{this.state.activeMovie.Plot}</p>
               <p className="movie-award">{this.state.activeMovie.Awards}</p>
               <p>
                 Directed By{" "}
-                <strong class="movie-director">
+                <strong className="movie-director">
                   {this.state.activeMovie.Director}
                 </strong>
               </p>

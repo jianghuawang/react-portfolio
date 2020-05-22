@@ -309,21 +309,21 @@ select {
 .movie-time {
   font-weight: 600;
 }
-.movie-rating {
-  justify-content: space-evenly;
-  margin-bottom: 30px;
-}
 .movie-imdb {
   background: #f5c518;
   border-radius: 16px;
   padding: 10px;
   padding-right: 20px;
+  width: 65%;
+  max-width: 176px;
 }
 .movie-meta {
   background: #57a7fd;
   border-radius: 16px;
   padding: 10px;
   color: white;
+  width: 65%;
+  max-width: 176px;
 }
 .disable-scrolling {
   height: 100%;
