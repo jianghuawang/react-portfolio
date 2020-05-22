@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/react-portfolio/static/css/main.04c4617e.chunk.css",
-    "main.js": "/react-portfolio/static/js/main.9fa8ba27.chunk.js",
-    "main.js.map": "/react-portfolio/static/js/main.9fa8ba27.chunk.js.map",
+    "main.css": "/react-portfolio/static/css/main.fe7a0d6c.chunk.css",
+    "main.js": "/react-portfolio/static/js/main.4d4b1e77.chunk.js",
+    "main.js.map": "/react-portfolio/static/js/main.4d4b1e77.chunk.js.map",
     "runtime-main.js": "/react-portfolio/static/js/runtime-main.359d512e.js",
     "runtime-main.js.map": "/react-portfolio/static/js/runtime-main.359d512e.js.map",
     "static/css/2.0868d1ab.chunk.css": "/react-portfolio/static/css/2.0868d1ab.chunk.css",
     "static/js/2.afb3568f.chunk.js": "/react-portfolio/static/js/2.afb3568f.chunk.js",
     "static/js/2.afb3568f.chunk.js.map": "/react-portfolio/static/js/2.afb3568f.chunk.js.map",
     "index.html": "/react-portfolio/index.html",
-    "precache-manifest.2ba2b9df33129786ba2f023128d25c96.js": "/react-portfolio/precache-manifest.2ba2b9df33129786ba2f023128d25c96.js",
+    "precache-manifest.127970bdbc41c50ee3d083e3e2cd52a4.js": "/react-portfolio/precache-manifest.127970bdbc41c50ee3d083e3e2cd52a4.js",
     "service-worker.js": "/react-portfolio/service-worker.js",
     "static/css/2.0868d1ab.chunk.css.map": "/react-portfolio/static/css/2.0868d1ab.chunk.css.map",
-    "static/css/main.04c4617e.chunk.css.map": "/react-portfolio/static/css/main.04c4617e.chunk.css.map",
+    "static/css/main.fe7a0d6c.chunk.css.map": "/react-portfolio/static/css/main.fe7a0d6c.chunk.css.map",
     "static/js/2.afb3568f.chunk.js.LICENSE.txt": "/react-portfolio/static/js/2.afb3568f.chunk.js.LICENSE.txt",
+    "static/media/IMG_0094.jpeg": "/react-portfolio/static/media/IMG_0094.6c3d771a.jpeg",
     "static/media/antvsbee-mainpage.png": "/react-portfolio/static/media/antvsbee-mainpage.b8913c0b.png",
     "static/media/map.png": "/react-portfolio/static/media/map.19607075.png",
-    "static/media/selfie.jpg": "/react-portfolio/static/media/selfie.bfcf3280.jpg",
     "static/media/selftake1.jpeg": "/react-portfolio/static/media/selftake1.488270c5.jpeg",
     "static/media/selftake10.jpeg": "/react-portfolio/static/media/selftake10.948e9c71.jpeg",
     "static/media/selftake2.jpeg": "/react-portfolio/static/media/selftake2.6f314909.jpeg",
@@ -32,7 +32,7 @@
     "static/js/runtime-main.359d512e.js",
     "static/css/2.0868d1ab.chunk.css",
     "static/js/2.afb3568f.chunk.js",
-    "static/css/main.04c4617e.chunk.css",
-    "static/js/main.9fa8ba27.chunk.js"
+    "static/css/main.fe7a0d6c.chunk.css",
+    "static/js/main.4d4b1e77.chunk.js"
   ]
 }
