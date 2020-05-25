@@ -66,7 +66,7 @@ export default class GuestBook extends Component {
       firebase.initializeApp(config);
     }
     let ref = firebase.database().ref("messages");
-    ref.on("value", (snapshot) => {
+    ref.once("value", (snapshot) => {
       const messages = snapshot.val();
       let newState = [];
       for (let message in messages) {
@@ -86,7 +86,7 @@ export default class GuestBook extends Component {
   componentDidUpdate(prevProps, prevState, snapshot) {
     if (this.state.shouldUpdate !== prevState.shouldUpdate) {
       let ref = firebase.database().ref("messages");
-      ref.on("value", (snapshot) => {
+      ref.once("value", (snapshot) => {
         const messages = snapshot.val();
         let newState = [];
         for (let message in messages) {
@@ -97,6 +97,7 @@ export default class GuestBook extends Component {
             comment: messages[message].comment,
             visibility: messages[message].visibility,
             email: messages[message].email,
+            time: messages[message].time,
           });
         }
         this.setState({ messages: newState });

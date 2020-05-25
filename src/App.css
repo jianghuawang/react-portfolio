@@ -213,7 +213,7 @@ h2 {
 .select-custom {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 }
 .label-custom {
   font-weight: 600;
@@ -312,6 +312,9 @@ select {
   width: 65%;
   max-width: 176px;
 }
+#visibility {
+  margin: auto 0;
+}
 .movie-meta {
   background: #57a7fd;
   border-radius: 16px;
@@ -326,4 +329,30 @@ select {
 }
 .movie-poster:hover {
   opacity: 0.3;
+}
+.movie-search-form {
+  margin-bottom: 32px;
+  padding: 20px;
+  width: 100%;
+  margin-right: 16px;
+}
+#searchId {
+  max-width: 1200px;
+}
+.movie-two-form {
+  display: flex;
+  justify-content: space-around;
+}
+/* .dropdown-item {
+  background-color: #f1f5fd;
+} */
+.dropdown-menu {
+  background-color: #f1f5fd;
+}
+.movie-menu {
+  margin-bottom: 16px;
+}
+.all-dropdowns {
+  display: flex;
+  margin-bottom: 8px;
 }
