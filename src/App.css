@@ -356,3 +356,9 @@ select {
   display: flex;
   margin-bottom: 8px;
 }
+.dropdown-item {
+  text-align: center;
+}
+.dropdown-item label {
+  cursor: pointer;
+}

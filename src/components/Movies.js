@@ -148,9 +148,9 @@ export default class Movies extends Component {
               <img src={this.state.dropDownImg} alt="" />
             </button>
             <div className="dropdown-menu movie-menu" style={this.addStylingDropDownList()}>
-              <a className="dropdown-item">All</a>
+              <label className="dropdown-item is-active">All</label>
               {this.state.allList.map((lst) => (
-                <span>lst</span>
+                <label className="dropdown-item">{lst}</label>
               ))}
             </div>
           </div>
@@ -160,7 +160,7 @@ export default class Movies extends Component {
             </button>
             <div className="dropdown-menu movie-menu" style={this.addStylingDropDownAddList()}>
               <div className="movie-form-search">
-                <form autoComplete="off" className="movie-search-form ">
+                <form autoComplete="off" className="movie-search-form " onSubmit={this.handleAdd}>
                   <div className="field ">
                     <label htmlFor="newListName" className="field-label ">
                       ADD NEW LIST:
