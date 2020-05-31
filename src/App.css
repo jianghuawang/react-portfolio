@@ -309,8 +309,7 @@ select {
   border-radius: 16px;
   padding: 10px;
   padding-right: 20px;
-  width: 65%;
-  max-width: 176px;
+  width: 173px;
 }
 #visibility {
   margin: auto 0;
@@ -320,8 +319,7 @@ select {
   border-radius: 16px;
   padding: 10px;
   color: white;
-  width: 65%;
-  max-width: 176px;
+  width: 173px;
 }
 .disable-scrolling {
   height: 100%;
@@ -330,7 +328,7 @@ select {
 .movie-poster:hover {
   opacity: 0.3;
 }
-.movie-search-form {
+.movie-add-form {
   margin-bottom: 32px;
   padding: 20px;
   width: 100%;
@@ -361,4 +359,19 @@ select {
 }
 .dropdown-item label {
   cursor: pointer;
+}
+.movie-operation{
+  display: flex;
+  justify-content: space-around;
+}
+.drop-down-list{
+  cursor: pointer;
+}
+.movie-search-bar{
+  position: absolute;
+  right: 50px;
+  display: flex;
+}
+.movie-search-input{
+  margin-right: 10px;
 }

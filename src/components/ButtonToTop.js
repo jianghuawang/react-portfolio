@@ -8,9 +8,9 @@ export default class ButtonToTop extends Component {
   }
   addstyling() {
     if (this.props.showBtn == true) {
-      return { visibility: "visible" };
+      return { visibility: "visible",backgroundColor:"#DFEEF4" };
     } else {
-      return { visibility: "hidden" };
+      return { visibility: "hidden",backgroundColor:"#DFEEF4" };
     }
   }
   render() {
