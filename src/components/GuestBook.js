@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import config from "../config.js";
-import Select from "react-select";
 import Message from "./Message.js";
 const firebase = require("firebase");
 
@@ -34,7 +33,6 @@ export default class GuestBook extends Component {
       if (!firebase.app.length) {
         firebase.initializeApp(config);
       }
-      let time = Date().toString();
       if (this.handleValidation() === false) {
         return;
       }

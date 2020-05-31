@@ -20,7 +20,7 @@ html {
 .modal {
   background-color: #f1f5fd;
 }
-h2 {
+.navbar-start h2 {
   margin: 10px auto;
   padding: 5px;
   cursor: pointer;
@@ -374,4 +374,9 @@ select {
 }
 .movie-search-input{
   margin-right: 10px;
+}
+.movie-load-page{
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
 }

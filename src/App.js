@@ -4,7 +4,6 @@ import Body from "./components/Body.js";
 import ButtonToTop from "./components/ButtonToTop.js";
 import "./App.css";
 import config from "./config.js";
-import { BrowserRoute, Route } from "react-router-dom";
 const firebase = require("firebase");
 export default class App extends Component {
   constructor() {

@@ -14,6 +14,8 @@ export default class Movies extends Component {
       activeMovie: { Poster: "" },
       activeList:[],
       addId:"",
+      allLength:0,
+      currPosition:0,
       searchName: "",
       allList: [],
       newListName: "",
@@ -38,7 +40,7 @@ export default class Movies extends Component {
       }
       var newOne=[]
       for(let list of this.state.allList){
-        if(newState.includes(list)==false){
+        if(newState.includes(list)===false){
           newOne.push(list)
         }
       }
@@ -101,6 +103,7 @@ export default class Movies extends Component {
       for (let movie in movies) {
         newState.push(movies[movie]);
       }
+      (newState.length<8)?this.setState({currPosition:newState.length,allLength:newState.length}):this.setState({currPosition:8,allLength:newState.length});
       this.setState({ movies: newState });
     });
     let refL = firebase.database().ref("lists");
@@ -126,7 +129,7 @@ export default class Movies extends Component {
     }));
   };
   addStylingDropDownList() {
-    if (this.state.dropDownListActive == true) {
+    if (this.state.dropDownListActive === true) {
       return { display: "flex" };
     } else {
       return { display: "none" };
@@ -140,7 +143,7 @@ export default class Movies extends Component {
     }));
   };
   addStylingSearch() {
-    if (this.state.dropDownSearchActive == true) {
+    if (this.state.dropDownSearchActive === true) {
       return { display: "flex", marginLeft: 40 };
     } else {
       return { display: "none" };
@@ -154,7 +157,7 @@ export default class Movies extends Component {
     }));
   };
   addStylingDropDownAddList() {
-    if (this.state.dropDownAddListActive == true) {
+    if (this.state.dropDownAddListActive === true) {
       return { display: "flex", marginLeft: 40 };
     } else {
       return { display: "none" };
@@ -175,8 +178,7 @@ export default class Movies extends Component {
     document.body.classList.remove("disable-scrolling");
   }
   handleShow=(listName)=>{
-    console.log(listName)
-    if(listName=="all"){
+    if(listName==="all"){
       this.setState({currList:"All"});
       let ref = firebase.database().ref("movies");
       ref.on("value", snapshot => {
@@ -185,6 +187,7 @@ export default class Movies extends Component {
         for (let movie in movies) {
           newState.push(movies[movie]);
         }
+        (newState.length<8)?this.setState({currPosition:newState.length,allLength:newState.length}):this.setState({currPosition:8,allLength:newState.length});
         this.setState({ movies: newState });
     });
     }
@@ -198,6 +201,7 @@ export default class Movies extends Component {
           const imdbID=pairs[id].imdbID;
           firebase.database().ref("movies").child(imdbID).on("value",snapshot=>(newState.push(snapshot.val())));
         }
+        (newState.length<8)?this.setState({currPosition:newState.length,allLength:newState.length}):this.setState({currPosition:8,allLength:newState.length});
         this.setState({movies:newState});
       })
     }
@@ -210,6 +214,7 @@ export default class Movies extends Component {
       for(let movie in result){
         newState.push(result[movie]);
       }
+      (newState.length<8)?this.setState({currPosition:newState.length,allLength:newState.length}):this.setState({currPosition:8,allLength:newState.length});
       this.setState({movies:newState})
     })
   }
@@ -222,8 +227,24 @@ export default class Movies extends Component {
     this.setState({activeMovie:{Poster:""}});
     document.body.classList.remove("disable-scrolling");
   }
+  handleLoad=(e)=>{
+    e.preventDefault();
+    if(this.state.currPosition+8<this.state.allLength){
+      this.setState(state=>({currPosition:state.currPosition+8}));
+    }
+    else{
+      this.setState(state=>({currPosition:state.allLength}));
+    }
+  }
+  addStylingLoading(){
+    if(this.state.currPosition===this.state.allLength){
+      return {display:"none"};
+    }
+    else{
+      return {display:"flex"};
+    }
+  }
   render() {
-    const item = this.state.movies.map(movie => <Movie key={movie.Poster} movie={movie} onEnlarge={this.handleEnlarge} />);
     return (
       <div className="movie-container">
         <div className="all-dropdowns">
@@ -235,7 +256,7 @@ export default class Movies extends Component {
             <div className="dropdown-menu movie-menu" style={this.addStylingDropDownList()}>
               <label className="dropdown-item drop-down-list" onClick={()=>(this.handleShow("all"))}>All</label>
               {this.state.allList.map(lst => (
-                <label key={lst} className="dropdown-item drop-down-list" onClick={()=>(this.handleShow(lst))}>{lst}</label>
+                <label className="dropdown-item drop-down-list" onClick={()=>(this.handleShow(lst))}>{lst}</label>
               ))}
             </div>
           </div>
@@ -292,7 +313,9 @@ export default class Movies extends Component {
               </div>
           </div>
         </div>
-        <div className="movie-grid">{item}</div>
+        <div className="movie-grid">
+          {this.state.movies.slice(0,this.state.currPosition).map(movie => <Movie key={movie.imdbID} movie={movie} onEnlarge={this.handleEnlarge} />)}
+        </div>
         <div className="lightbox-movie-container" style={this.addStyling()} onClick={this.handleReturn}>
           <div className="lightbox-movie ">
             <img className="movie-enlarge-view" src={this.state.activeMovie.Poster} alt="" />
@@ -312,7 +335,7 @@ export default class Movies extends Component {
                     <option value="" disabled selected>
                       Add to list:
                     </option>
-                    {this.state.activeList.map(lst=>(<option value={lst}>{lst}</option>))}
+                    {this.state.activeList.map(lst=>(<option value={lst} key={lst}>{lst}</option>))}
                   </select>
                 </div>
                 <div>
@@ -323,6 +346,9 @@ export default class Movies extends Component {
               </div>
             </div>
           </div>
+        </div>
+        <div className="movie-load-page" style={this.addStylingLoading()}>
+          <button className="button" onClick={this.handleLoad}>LOAD</button>
         </div>
       </div>
     );
