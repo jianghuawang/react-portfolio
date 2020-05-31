@@ -12,14 +12,14 @@ export default class Movies extends Component {
     this.state = {
       movies: [],
       activeMovie: { Poster: "" },
-      activeList:[],
-      addId:"",
-      allLength:0,
-      currPosition:0,
+      activeList: [],
+      addId: "",
+      allLength: 0,
+      currPosition: 0,
       searchName: "",
       allList: [],
       newListName: "",
-      currList:"All",
+      currList: "All",
       dropDownListActive: false,
       dropDownImg: down,
       dropDownSearchActive: false,
@@ -31,28 +31,28 @@ export default class Movies extends Component {
   };
   handleEnlarge = movie => {
     this.setState({ activeMovie: movie });
-    var ref=firebase.database().ref("moviepairs").orderByChild("imdbID").equalTo(movie.imdbID);
-    var newState=[]
-    ref.once("value",snapshot=>{
-      var result=snapshot.val();
-      for(let id in result){
-        newState.push(result[id].listName)
+    var ref = firebase.database().ref("moviepairs").orderByChild("imdbID").equalTo(movie.imdbID);
+    var newState = [];
+    ref.once("value", snapshot => {
+      var result = snapshot.val();
+      for (let id in result) {
+        newState.push(result[id].listName);
       }
-      var newOne=[]
-      for(let list of this.state.allList){
-        if(newState.includes(list)===false){
-          newOne.push(list)
+      var newOne = [];
+      for (let list of this.state.allList) {
+        if (newState.includes(list) === false) {
+          newOne.push(list);
         }
       }
-      this.setState({activeList:newOne})
-    })
+      this.setState({ activeList: newOne });
+    });
     document.body.classList.add("disable-scrolling");
   };
   handleReturn = e => {
     var frame = document.querySelector(".lightbox-movie-container");
     if (e.target === frame) {
       this.setState({ activeMovie: { Poster: "" } });
-      this.setState({activeList:[]});
+      this.setState({ activeList: [] });
       document.body.classList.remove("disable-scrolling");
     }
   };
@@ -65,9 +65,13 @@ export default class Movies extends Component {
         alert("movie already exist!");
       } else {
         axios.get(url).then(response => {
-          firebase.database().ref("movies").child(response.data.imdbID).set(response.data);
+          if (response.data.imdbID != null) {
+            firebase.database().ref("movies").child(response.data.imdbID).set(response.data);
+            alert("add successfully!");
+          } else {
+            alert("Invalid IMDBID!");
+          }
         });
-        alert("add successfully!");
       }
     });
     this.setState({ addId: "" });
@@ -103,7 +107,7 @@ export default class Movies extends Component {
       for (let movie in movies) {
         newState.push(movies[movie]);
       }
-      (newState.length<8)?this.setState({currPosition:newState.length,allLength:newState.length}):this.setState({currPosition:8,allLength:newState.length});
+      newState.length < 8 ? this.setState({ currPosition: newState.length, allLength: newState.length }) : this.setState({ currPosition: 8, allLength: newState.length });
       this.setState({ movies: newState });
     });
     let refL = firebase.database().ref("lists");
@@ -163,23 +167,23 @@ export default class Movies extends Component {
       return { display: "none" };
     }
   }
-  handleDelete=(e)=>{
+  handleDelete = e => {
     e.preventDefault();
     firebase.database().ref("movies").child(this.state.activeMovie.imdbID).remove();
-    var ref=firebase.database().ref("moviepairs").orderByChild("imdbID").equalTo(this.state.activeMovie.imdbID);
-    ref.once("value",snapshot=>{
-      var result=snapshot.val();
-      for(var index in result){
+    var ref = firebase.database().ref("moviepairs").orderByChild("imdbID").equalTo(this.state.activeMovie.imdbID);
+    ref.once("value", snapshot => {
+      var result = snapshot.val();
+      for (var index in result) {
         firebase.database().ref("moviepairs").child(index).remove();
       }
-    })
+    });
     this.setState({ activeMovie: { Poster: "" } });
     this.handleShow("all");
     document.body.classList.remove("disable-scrolling");
-  }
-  handleShow=(listName)=>{
-    if(listName==="all"){
-      this.setState({currList:"All"});
+  };
+  handleShow = listName => {
+    if (listName === "all") {
+      this.setState({ currList: "All" });
       let ref = firebase.database().ref("movies");
       ref.on("value", snapshot => {
         const movies = snapshot.val();
@@ -187,61 +191,67 @@ export default class Movies extends Component {
         for (let movie in movies) {
           newState.push(movies[movie]);
         }
-        (newState.length<8)?this.setState({currPosition:newState.length,allLength:newState.length}):this.setState({currPosition:8,allLength:newState.length});
+        newState.length < 8 ? this.setState({ currPosition: newState.length, allLength: newState.length }) : this.setState({ currPosition: 8, allLength: newState.length });
         this.setState({ movies: newState });
-    });
-    }
-    else{
-      this.setState({currList:listName});
-      let ref=firebase.database().ref("moviepairs").orderByChild("listName").equalTo(listName);
-      let newState=[]
-      ref.once("value",snapshot=>{
-        var pairs=snapshot.val();
-        for(let id in pairs){
-          const imdbID=pairs[id].imdbID;
-          firebase.database().ref("movies").child(imdbID).on("value",snapshot=>(newState.push(snapshot.val())));
+      });
+    } else {
+      this.setState({ currList: listName });
+      let ref = firebase.database().ref("moviepairs").orderByChild("listName").equalTo(listName);
+      let newState = [];
+      ref.once("value", snapshot => {
+        var pairs = snapshot.val();
+        for (let id in pairs) {
+          const imdbID = pairs[id].imdbID;
+          firebase
+            .database()
+            .ref("movies")
+            .child(imdbID)
+            .on("value", snapshot => newState.push(snapshot.val()));
         }
-        (newState.length<8)?this.setState({currPosition:newState.length,allLength:newState.length}):this.setState({currPosition:8,allLength:newState.length});
-        this.setState({movies:newState});
-      })
+        newState.length < 8 ? this.setState({ currPosition: newState.length, allLength: newState.length }) : this.setState({ currPosition: 8, allLength: newState.length });
+        this.setState({ movies: newState });
+      });
     }
-  }
-  handleSearch=(e)=>{
+  };
+  handleSearch = e => {
     e.preventDefault();
-    let newState=[]
-    firebase.database().ref("movies").orderByChild("Title").equalTo(this.state.searchName).once("value",snapshot=>{
-      var result=snapshot.val();
-      for(let movie in result){
-        newState.push(result[movie]);
-      }
-      (newState.length<8)?this.setState({currPosition:newState.length,allLength:newState.length}):this.setState({currPosition:8,allLength:newState.length});
-      this.setState({movies:newState})
-    })
-  }
-  handleCreatePair=(id,value,target)=>{
+    let newState = [];
+    firebase
+      .database()
+      .ref("movies")
+      .orderByChild("Title")
+      .equalTo(this.state.searchName)
+      .once("value", snapshot => {
+        var result = snapshot.val();
+        for (let movie in result) {
+          newState.push(result[movie]);
+        }
+        newState.length < 8 ? this.setState({ currPosition: newState.length, allLength: newState.length }) : this.setState({ currPosition: 8, allLength: newState.length });
+        this.setState({ movies: newState });
+      });
+  };
+  handleCreatePair = (id, value, target) => {
     firebase.database().ref("moviepairs").push({
-      imdbID:id,
-      listName:value
+      imdbID: id,
+      listName: value,
     });
-    target.value="";
-    this.setState({activeMovie:{Poster:""}});
+    target.value = "";
+    this.setState({ activeMovie: { Poster: "" } });
     document.body.classList.remove("disable-scrolling");
-  }
-  handleLoad=(e)=>{
+  };
+  handleLoad = e => {
     e.preventDefault();
-    if(this.state.currPosition+8<this.state.allLength){
-      this.setState(state=>({currPosition:state.currPosition+8}));
+    if (this.state.currPosition + 8 < this.state.allLength) {
+      this.setState(state => ({ currPosition: state.currPosition + 8 }));
+    } else {
+      this.setState(state => ({ currPosition: state.allLength }));
     }
-    else{
-      this.setState(state=>({currPosition:state.allLength}));
-    }
-  }
-  addStylingLoading(){
-    if(this.state.currPosition===this.state.allLength){
-      return {display:"none"};
-    }
-    else{
-      return {display:"flex"};
+  };
+  addStylingLoading() {
+    if (this.state.currPosition === this.state.allLength) {
+      return { display: "none" };
+    } else {
+      return { display: "flex" };
     }
   }
   render() {
@@ -254,14 +264,18 @@ export default class Movies extends Component {
               <img src={this.state.dropDownImg} alt="" />
             </button>
             <div className="dropdown-menu movie-menu" style={this.addStylingDropDownList()}>
-              <label className="dropdown-item drop-down-list" onClick={()=>(this.handleShow("all"))}>All</label>
+              <label className="dropdown-item drop-down-list" onClick={() => this.handleShow("all")}>
+                All
+              </label>
               {this.state.allList.map(lst => (
-                <label className="dropdown-item drop-down-list" onClick={()=>(this.handleShow(lst))}>{lst}</label>
+                <label className="dropdown-item drop-down-list" onClick={() => this.handleShow(lst)}>
+                  {lst}
+                </label>
               ))}
             </div>
           </div>
           <div id="dropdown-add-list" className="dropdown">
-            <button style={{backgroundColor:"#739DDD",color:"white"}}className="dropdown-toggle button" onClick={this.handleDropDownAddList}>
+            <button style={{ backgroundColor: "#739DDD", color: "white" }} className="dropdown-toggle button" onClick={this.handleDropDownAddList}>
               <span>Add List </span>
             </button>
             <div className="dropdown-menu movie-menu" style={this.addStylingDropDownAddList()}>
@@ -283,7 +297,7 @@ export default class Movies extends Component {
             </div>
           </div>
           <div id="dropdown-search" className="dropdown">
-            <button style={{backgroundColor:"#FB6F6F",color:"white"}}className="dropdown-toggle button" onClick={this.handleDropDownSearch}>
+            <button style={{ backgroundColor: "#FB6F6F", color: "white" }} className="dropdown-toggle button" onClick={this.handleDropDownSearch}>
               <span>Add Movie</span>
             </button>
             <div className="dropdown-menu movie-menu" style={this.addStylingSearch()}>
@@ -305,16 +319,18 @@ export default class Movies extends Component {
             </div>
           </div>
           <div className="movie-search-bar">
-              <input type="text" className="input movie-search-input" value={this.state.searchName} onChange={this.onChange} name="searchName" required placeholder="search"/>
-              <div>
-                <button className="button" onClick={this.handleSearch}>
-                  Search
-                </button>
-              </div>
+            <input type="text" className="input movie-search-input" value={this.state.searchName} onChange={this.onChange} name="searchName" required placeholder="search" />
+            <div>
+              <button className="button" onClick={this.handleSearch}>
+                Search
+              </button>
+            </div>
           </div>
         </div>
         <div className="movie-grid">
-          {this.state.movies.slice(0,this.state.currPosition).map(movie => <Movie key={movie.imdbID} movie={movie} onEnlarge={this.handleEnlarge} />)}
+          {this.state.movies.slice(0, this.state.currPosition).map(movie => (
+            <Movie key={movie.imdbID} movie={movie} onEnlarge={this.handleEnlarge} />
+          ))}
         </div>
         <div className="lightbox-movie-container" style={this.addStyling()} onClick={this.handleReturn}>
           <div className="lightbox-movie ">
@@ -331,11 +347,21 @@ export default class Movies extends Component {
               <p className="movie-time">{this.state.activeMovie.Runtime}</p>
               <div className="movie-operation">
                 <div>
-                  <select style={{ height: "39.176px", backgroundColor: "#6E7FE4", color: "white" }} className="label" name="newlist" id="newlist" onChange={(e)=>(this.handleCreatePair(this.state.activeMovie.imdbID,e.target.value,e.target))}>
+                  <select
+                    style={{ height: "39.176px", backgroundColor: "#6E7FE4", color: "white" }}
+                    className="label"
+                    name="newlist"
+                    id="newlist"
+                    onChange={e => this.handleCreatePair(this.state.activeMovie.imdbID, e.target.value, e.target)}
+                  >
                     <option value="" disabled selected>
                       Add to list:
                     </option>
-                    {this.state.activeList.map(lst=>(<option value={lst} key={lst}>{lst}</option>))}
+                    {this.state.activeList.map(lst => (
+                      <option value={lst} key={lst}>
+                        {lst}
+                      </option>
+                    ))}
                   </select>
                 </div>
                 <div>
@@ -348,7 +374,9 @@ export default class Movies extends Component {
           </div>
         </div>
         <div className="movie-load-page" style={this.addStylingLoading()}>
-          <button className="button" onClick={this.handleLoad}>LOAD</button>
+          <button className="button" onClick={this.handleLoad}>
+            LOAD
+          </button>
         </div>
       </div>
     );
