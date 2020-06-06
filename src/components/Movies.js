@@ -268,7 +268,7 @@ export default class Movies extends Component {
                 All
               </label>
               {this.state.allList.map(lst => (
-                <label className="dropdown-item drop-down-list" onClick={() => this.handleShow(lst)}>
+                <label key={lst} className="dropdown-item drop-down-list" onClick={() => this.handleShow(lst)}>
                   {lst}
                 </label>
               ))}
